@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Formulár na kúpu auta</h1>
+</header>
+<div class="big-conntent">
+    <div class="content">
+        <form action="https://iolab.sk/form2mail/form2mail.php" method="post" enctype="multipart/form-data" onsubmit="return submitFunction()">
+            <input type="hidden" name="apikey" value="bd06593ff9c0762e9b76daf65e0c91d3">
+
+            <input type="hidden" name="Marian-Choma">
+            <input type="hidden" name="from" value="xchoma@stuba.sk">
+            <input type="hidden" name="to" value="feistu02@gmail.com">
+            <input type="hidden" name="subject" value="Kúpa auta">
+            <input type="hidden" name="redirectOk" value="https://www.fei.stuba.sk/">
+            <input type="hidden" name="redirectFalse" value="https://www.youtube.com/">
+
+            <div class="div_content">
+                <div class="wrapper">
+                    <label for="meno">Meno:*</label><br>
+                    <input class="vstup" name="Krstné meno" type="text" id="meno" placeholder="Meno" required><br>
+                </div>
+
+                <div class="wrapper">
+                    <label for="priezvisko">Priezvisko:*</label><br>
+                    <input class="vstup" name="Priezvisko" type="text" id="priezvisko" placeholder="Priezvisko"
+                           required><br>
+                </div>
+                <div class="wrapper">
+                    <label for="datum">Dátum narodenia:*</label><br>
+                    <input class="vstup" type="date" name="Dátum narodenia" id="datum"
+                           required><br>
+                </div>
+                <div class="wrapper">
+                    <label for="vek">Vek:*</label><br>
+                    <input class="vstup" type="number" name="Vek" id="vek" min="1" placeholder="vek"
+                           onchange="validaciaDatumu()"
+                           required><br>
+                    <p id="toolvek">Vek nezodpovedá dátumu narodenia</p>
+                </div>
+
+                <div class="wrapper">
+                    <label for="e-mail">Email:*</label><br>
+                    <input class="vstup" type="email" name="E-mail" id="e-mail" onchange="validateEmail()" required>
+                    <p id="zavinac" class="email-tool">Email neobsahuje @</p>
+                    <p id="bodka" class="email-tool">Email nemá minimálne 2 domény</p>
+                    <p id="dlzka-domeny" class="email-tool">Nesprávna dĺžka domény, musia byť minimálne dve.</p>
+                    <p id="dlzka-mena" class="email-tool">Pred znakom musia byť minimálne 3 znaky</p>
+                </div>
+
+                <div class="wrapper">
+                    <label for="telefonne_cislo">Tel. číslo:</label><br>
+                    <input class="vstup" type="tel" name="Telefónne číslo" id="telefonne_cislo">
+                </div>
+                <div id="text_wraper">
+                    <p>
+                        Zvolte si typ auta:
+                    </p>
+                </div>
+                <div id="lists" class="wrapper">
+
+                    <select name="Automobilová rada" id="list1" onchange="validateList1()" required>
+                        <option disabled selected value>Rada</option>
+                        <option value="AMG">AMG</option>
+                        <option value="Maybach">Maybach</option>
+                        <option value="Mercedes-eq">Mercedes-eq</option>
+                    </select>
+
+                    <select name="Typ vozidla" id="list2" onchange="validateList2()">
+                        <option disabled selected value id="dvalue2"> zvolte položku z 1.listu</option>
+
+                        <option class="polozky1" value="Hatchback" hidden>Hatchback</option>
+                        <option class="polozky1" value="Kupé" hidden>Kupé</option>
+                        <option class="polozky1" value="SUV" hidden>SUV</option>
+
+                        <option class="polozky2" value="Maybach-Sedan" hidden>Sedan</option>
+                        <option class="polozky2" value="Maybach-SUV" hidden>SUV</option>
+
+                        <option class="polozky3" value="Eq-Sedan" hidden>Sedan</option>
+                        <option class="polozky3" value="dodavka" hidden>Dodavka</option>
+                    </select>
+
+                    <select name="Model auta" id="list3">
+                        <option disabled selected value="none" id="dvalue3">zvolte položku z 2.listu</option>
+                        <option class="polozky4" value="Trieda A Hatchback" hidden>Trieda A Hatchback</option>
+                        <option class="polozky4" value="Trieda A Hatchback GT" hidden>Trieda A Hatchback GT</option>
+                        <option class="polozky5" value="CLA Kupé" hidden>CLA Kupé</option>
+                        <option class="polozky5" value="CLS Kupé" hidden>CLS Kupé</option>
+                        <option class="polozky6" value="Trieda G" hidden>Trieda G</option>
+                        <option class="polozky6" value="GLS SUV" hidden>GLS SUV</option>
+
+                        <option class="polozky7" value="Mercedes Maybach-sedan" hidden>Mercedes Maybach-sedan</option>
+                        <option class="polozky8" value="Mercedes Maybach-GLS" hidden>Mercedes Maybach-GLS</option>
+
+                        <option class="polozky9" value="Mercedes EQE" hidden>Mercedes EQE</option>
+                        <option class="polozky9" value="Mercedes EQS" hidden>Mercedes EQS</option>
+
+                        <option class="polozky10" value="Mercedes EQV" hidden>Mercedes EQV</option>
+
+                    </select>
+                </div>
+                <div class="wrapper" id="doprava">
+                    <p>Možnosti vyzdvihnutia auta:</p><br>
+
+                    <input type="radio" id="osobne" name="Spôsob vyzdvihnutia" value="Osobne na predajni"
+                           onclick="radioFunction()">
+                    <label for="osobne">Osobne na predajni</label>
+                    <br>
+
+                    <input type="radio" id="css" name="Spôsob vyzdvihnutia" value="Auto si nevyzdvihnem"
+                           onclick="radioFunction()">
+                    <label for="css">Najbližšie si auto nevyzdvihnem</label>
+                    <br>
+
+                    <input type="radio" id="domov" name="Spôsob vyzdvihnutia" value="Doprava domov"
+                           onclick="radioFunction()">
+                    <label for="domov">Doprava ku Vám domov</label>
+
+                </div>
+                <div class="wrapper" id="dalsieInfo">
+                    <div id="divAdresa">
+                        <label for="mesto">Mesto:</label><br>
+                        <input type="text" name="Mesto" id="mesto"><br><br>
+                        <label for="ulica">Ulica a číslo domu:</label><br>
+                        <input type="text" name="Ulica" id="ulica">
+                    </div>
+                </div>
+                <div class="wrapper" id="chbox">
+                    <p>Doplňujúca výbava:</p><br>
+                    <input type="checkbox" id="vehicle1" name="Športová úprava" value="ano">
+                    <label for="vehicle1">Športová úprava</label><br>
+
+                    <input type="checkbox" id="vehicle2" name="Kožený interier" value="ano">
+                    <label for="vehicle2">Kožený interier</label><br>
+
+                    <input type="checkbox" id="vehicle3" name="Predĺžená záruka" value="ano">
+                    <label for="vehicle3">Predĺžená záruka</label><br>
+
+                    <input type="checkbox" id="ine" name="Špeciálne požiadavky" value="ano"
+                           onclick="checkedFunction()">
+                    <label for="ine">Špeciálne požiadavky</label><br>
+
+                    <input type="text" class="tooltip" name="Špeciálne požiadavky" id="inetool">
+                </div>
+                <div class="wrapper">
+                    <label for="text">Poznámka:</label><br>
+                    <textarea id="text" rows="6" cols="15" name="Poznámka"></textarea>
+                </div>
+                <div id="submit">
+                    <input id="submit-button" type="submit" value="Odoslat">
+                </div>
+            </div>
+        </form>
+        <p id="povinne">*Povinné</p>
+    </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+}
+.big-conntent{
+    background-image:url("./images/logo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+header{
+    width: 100%;
+}
+header h1{
+    background: linear-gradient(to right, #9f9f9f, black);
+    text-align: center;
+    height: 20%;
+}
+.content{
+    background-color: gray;
+    border: 3px solid black;
+    border-radius: 8px;
+    opacity: 0.9;
+    margin: auto auto 100px;
+    padding-bottom: 110px;
+    width: 60%;
+}
+.div_content{
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.wrapper{
+    text-align: center;
+    margin-bottom: 8%;
+    margin-left: 3%;
+
+}
+#lists{
+    display: inline;
+   text-align: left;
+    grid-column: 1 / span 2;
+}
+#list1, #list2,#list3{
+    height: 130%;
+    border-radius: 5px;
+}
+#lists select{
+    width: 20%;
+    margin-left: 10%;
+}
+.vstup{
+    border-radius: 8px;
+    height: 50%;
+    width: 80%;
+}
+
+.tooltip{
+    display: none;
+}
+#chbox{
+    text-align: left;
+}
+#text{
+    width:80%;
+    height: 100%;
+    resize: none;
+}
+#submit{
+    grid-column: 1 / span 2;
+    text-align: center;
+    width: 100%;
+}
+#submit input{
+    height: 55px;
+    font-size: large;
+    font-weight: bolder;
+    border-radius: 8px;
+    margin-top: 10%;
+    width: 33%;
+}
+#text_wraper{
+    grid-column: 1 / span 2;
+    margin-left: 5%;
+}
+#doprava{
+    text-align:left;
+}
+@media (max-width: 768px){
+    .div_content, #lists, #lists select{
+        display: block;
+    }
+    .vstup{
+        width: 90%;
+    }
+    .wrapper, #lists, #lists select{
+        text-align: center;
+    }
+
+    #list1, #list2,#list3{
+        margin-top: 50px;
+        width:80% !important;
+    }
+}
+.email-tool, #divAdresa, #toolvek{
+    display: none;
+}
+
+#povinne{
+    margin-left: 3%;
+}
+#submit-button:hover{
+    background-color: green;
+}
+
+
+
+
+
+
